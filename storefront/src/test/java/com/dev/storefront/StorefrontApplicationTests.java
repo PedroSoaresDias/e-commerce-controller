@@ -1,10 +1,10 @@
-package br.com.dio.warehouse;
+package com.dev.storefront;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WarehouseApplicationTests {
+class StorefrontApplicationTests {
 
 	@Test
 	void contextLoads() {

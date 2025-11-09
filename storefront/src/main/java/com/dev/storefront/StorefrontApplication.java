@@ -1,4 +1,4 @@
-package br.com.dio.storefront;
+package com.dev.storefront;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
