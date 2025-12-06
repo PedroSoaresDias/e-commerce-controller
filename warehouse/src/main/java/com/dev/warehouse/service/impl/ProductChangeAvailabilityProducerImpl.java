@@ -1,7 +1,6 @@
 package com.dev.warehouse.service.impl;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.dev.warehouse.domain.dto.StockStatusMessage;
@@ -13,10 +12,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class ProductChangeAvailabilityProducerImpl implements IProductChangeAvaliabilityProducer {
     private final RabbitTemplate rabbitTemplate;
-    @Value("product.change.availability.exchange")
-    private final String exchangeName;
-    @Value("product.change.availability.routing.key")
-    private final String routingKeyName;
+    private final String exchangeName = "product.change.availability.exchange";
+    private final String routingKeyName = "product.change.availability.routing.key";
 
     @Override
     public void notifyStatusChange(StockStatusMessage message) {

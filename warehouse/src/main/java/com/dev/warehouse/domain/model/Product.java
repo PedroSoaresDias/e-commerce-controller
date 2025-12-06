@@ -1,5 +1,6 @@
 package com.dev.warehouse.domain.model;
 
+import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,13 +32,21 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Stock> stocks = new HashSet<>();
 
-    public Stock decStock() {
-        var stock = this.stocks.stream()
+    private Stock getStockWithMinSoldPrice() {
+        return this.stocks.stream()
                 .filter(s -> s.getStatus().equals(AVAILABLE))
                 .min(Comparator.comparing(Stock::getSoldPrice))
                 .orElseThrow();
+    }
+
+    public Stock decStock() {
+        var stock = getStockWithMinSoldPrice();
         stock.decAmount();
         return stock;
+    }
+
+    public BigDecimal getPrice() {
+        return getStockWithMinSoldPrice().getSoldPrice();
     }
 
     @Override
