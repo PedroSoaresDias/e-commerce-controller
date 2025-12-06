@@ -29,12 +29,12 @@ spring:
     username: guest
     password: guest
     virtual-host: /
-    queue:
-      product-change-availability: product.change.availability.queue
-    exchange:
-      product-change-availability: product.change.availability.exchange
-    routing-key:
-      product-change-availability: product.change.availability.routing.key
+
+logging:
+  level:
+    org:
+      springframework:
+        amqp: DEBUG
 
 storefront:
   base-path: http://localhost:8081/storefront
