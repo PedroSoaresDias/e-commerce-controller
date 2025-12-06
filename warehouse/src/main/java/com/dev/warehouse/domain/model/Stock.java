@@ -42,6 +42,10 @@ public class Stock {
         }
     }
 
+    public boolean isUnavailable() {
+        return status == UNAVAILABLE;
+    }
+
     @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
