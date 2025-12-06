@@ -12,7 +12,7 @@ import com.dev.warehouse.domain.model.Stock;
 import com.dev.warehouse.domain.model.StockStatus;
 import com.dev.warehouse.domain.repository.StockRepository;
 import com.dev.warehouse.service.IProductChangeAvaliabilityProducer;
-import com.dev.warehouse.service.IProductService;
+import com.dev.warehouse.service.IProductQueryService;
 import com.dev.warehouse.service.IStockService;
 
 import lombok.AllArgsConstructor;
@@ -21,7 +21,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class StockServiceImpl implements IStockService {
     private final StockRepository stockRepository;
-    private final IProductService productService;
+    private final IProductQueryService productService;
     private final IProductChangeAvaliabilityProducer producer;
     
     @Override
